@@ -10,9 +10,40 @@
 
 ### Docker support
 
-```bash
-bash ./install.sh
-```
+1. 下载源码
+
+    ```bash
+    bash ./download.sh
+    ```
+
+1. 修改配置文件
+
+    - 后台
+
+      修改配置文件`BackEnd/BackEnd/settings.py`
+      ```python
+      DATABASES = {
+        'default': {
+          # ...
+          'HOST': 'coin_arrival',  # 与 ServerEnd 下 docker-compose 中的数据库服务容器名保持一致
+        }
+      }
+      ```
+
+    - 服务端
+
+      修改配置文件`ServerEnd/bin/config/config.js`
+
+      ```javascript
+      'backend': 'http://backend:8000', // 为本项目 docker-compose 中的后台服务名
+      ```
+
+2. 部署运行项目
+    ```bash
+    bash ./install.sh
+    ```
+
+    通过`http://localhost:3000/public/index.html`
 
 ### Manually
 
@@ -136,14 +167,17 @@ mkdir coinarrival
   - 部署前端代码
   
   ```bash
+  npm install
   npm run build
   ```
 
   将生成代码拷贝到服务端
   ```bash
+  mkdir ../ServerEnd/resources/public/dist
+  mkdir ../ServerEnd/resources/dist
   cp index.html ../ServerEnd/resources/public/index.html
-  cp -r ./dist/ ../ServerEnd/resources/
-  cp -r ./static/ ../ServerEnd/resources/public/static
+  cp -r ./dist ../ServerEnd/resources
+  cp -r ./static ../ServerEnd/resources/public/static
   mv ../ServerEnd/resources/dist/*.js ../ServerEnd/resources/public/dist/*.js
   ```
 

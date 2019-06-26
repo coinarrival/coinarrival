@@ -1,23 +1,11 @@
-# set up source code directory
-cd ..
-mkdir coinarrival
+#!/bin/bash
+set -e # once broken, exit bash
 
-echo "Downloading Source Code..."
-
-# FrontEnd code
-git clone https://github.com/coinarrival/FrontEnd.git
-
-# ServerEnd code
-git clone https://github.com/coinarrival/ServerEnd.git
-
-# BackEnd code
-git clone https://github.com/coinarrival/BackEnd.git
-
-echo "Download Finish."
-
+echo "Building Repo"
 # Build FrontEnd
 cd FrontEnd
 echo "Building FrontEnd Page..."
+npm install
 npm run build
 
 cp index.html ../ServerEnd/resources/public/index.html
