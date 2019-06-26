@@ -4,7 +4,19 @@
 
 ## Documents
 
-[Documents](https://coinarrival.github.io/documents)
+- [**Documents for SYSU_SoftwareAnalysis**](https://coinarrival.github.io/documents)
+- **Documents for SE-308**
+  - [安装部署说明](https://coinarrival.github.io/documents/docs/productionSpecification/installation.html)
+  - [用户手册](https://coinarrival.github.io/documents/docs/manual.html)
+  - 所有源代码
+    - [FrontEnd](https://github.com/coinarrival/FrontEnd)
+    - [ServerEnd](https://github.com/coinarrival/ServerEnd)
+    - [BackEnd](https://github.com/coinarrival/BackEnd)
+  - [软件需求规格说明书](https://coinarrival.github.io/documents/docs/srs/requirementSpecification.html)
+  - [软件设计文档](https://coinarrival.github.io/documents/docs/design/softwaredesign.html)
+  - [小组分工与贡献率说明](https://coinarrival.github.io/documents/docs/teamProfile.html)
+
+
 
 ## Installation
 
@@ -16,7 +28,7 @@
     bash ./download.sh
     ```
 
-1. 修改配置文件
+2. 修改配置文件
 
     - 后台
 
@@ -38,7 +50,7 @@
       'backend': 'http://backend:8000', // 为本项目 docker-compose 中的后台服务名
       ```
 
-2. 部署运行项目
+3. 部署运行项目
     ```bash
     bash ./install.sh
     ```
